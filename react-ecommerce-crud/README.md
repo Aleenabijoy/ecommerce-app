@@ -1,16 +1,72 @@
-# React + Vite
+# React E-Commerce CRUD Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive single-page e-commerce CRUD application built with React using the Fake Store API. This project demonstrates Create, Read, Update, and Delete (CRUD) operations with client-side state management and responsive design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Display products from the Fake Store API
+- View detailed information for each product
+- Add new products
+- Edit existing products
+- Delete products
+- Responsive design using Bootstrap
+- Loading and error handling
+- Client-side form validation
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- React Router DOM
+- Bootstrap
+- JavaScript
+- Fake Store API
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── components/
+│   ├── Navbar.jsx
+│   └── ProductCard.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── ProductDetails.jsx
+│   ├── AddProduct.jsx
+│   └── EditProduct.jsx
+├── services/
+│   └── api.js
+├── App.jsx
+└── main.jsx
+```
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Aleenabijoy/ecommerce-app.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start the development server
+
+```bash
+npm run dev
+```
+
+## API
+
+This project uses the Fake Store API to fetch product data:
+
+https://fakestoreapi.com/
+
+## Notes
+
+- Products are initially loaded from the Fake Store API.
+- Newly added, edited, and deleted products are stored in the application's client-side state.
+- Since the Fake Store API is a mock API, CRUD operations are reflected only in the running application and are not permanently stored.
