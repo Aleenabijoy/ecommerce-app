@@ -23,12 +23,12 @@ function AddProduct({products,setProducts}){
         e.preventDefault();
         if(
             !formData.title ||
-            !formData.price ||
             !formData.description||
             !formData.category||
-            !formData.image
+            !formData.image||
+            Number(formData.price) <= 0
         ){
-            alert("Please fill in all fields.");
+            alert("Please enter valid product details.");
             return;
         }
         const newProduct={
@@ -63,7 +63,10 @@ function AddProduct({products,setProducts}){
                         className="form-control"
                         name="price"
                         value={formData.price}
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        step="0.01"
+                        min="0.01"
+                        />
                 </div>
 
                 <div className="mb-3">
@@ -96,6 +99,7 @@ function AddProduct({products,setProducts}){
                     name="image"
                     value={formData.image}
                     onChange={handleChange}
+                    
                     />
                 </div>
 

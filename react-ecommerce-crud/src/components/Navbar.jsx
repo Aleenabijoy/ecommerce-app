@@ -11,10 +11,11 @@ function Navbar(){
                     <Link className="nav-link" to="/">
                         Home
                     </Link>
-                </div>
+                
                 <Link className="nav-link" to="/add-product">
                     Add Product 
                 </Link>
+            </div>
             </div>
         </nav>
     );

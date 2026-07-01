@@ -41,7 +41,9 @@ function App() {
           }/>
         <Route
             path="/product/:id"
-            element={<ProductDetails products={products} />}
+            element={<ProductDetails 
+              products={products}
+              setProducts={setProducts} />}
           />
         <Route
             path="/add-product"
@@ -51,7 +53,14 @@ function App() {
                 setProducts={setProducts}
               />
             }/>
-        <Route path="/edit-product/:id" element={<EditProduct/>}/>
+        <Route
+            path="/edit-product/:id"
+            element={
+              <EditProduct
+                products={products}
+                setProducts={setProducts}
+              />}
+          />
       </Routes> 
     </>
   );

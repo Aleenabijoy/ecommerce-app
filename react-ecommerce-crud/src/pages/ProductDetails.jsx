@@ -1,7 +1,7 @@
 import { Link,useNavigate,useParams} from "react-router-dom";
 
 
-function ProductDetails({products}){
+function ProductDetails({products, setProducts}){
     const {id} = useParams();
     const navigate=useNavigate();
 
@@ -16,6 +16,19 @@ function ProductDetails({products}){
             Product not found
         </h2>
         );
+    }
+
+    const handleDelete=()=>{
+        const confirmDelete=window.confirm(
+            "Are you sure you want to delete this product?"
+        );
+        
+        if (!confirmDelete) return;
+        const updatedProducts=products.filter(
+            (product)=>product.id !== Number(id)
+        );
+        setProducts(updatedProducts);
+        navigate("/");
     }
     return (
     <div className="container mt-5">
@@ -54,7 +67,9 @@ function ProductDetails({products}){
             Edit
           </Link>
 
-          <button className="btn btn-danger">Delete
+          <button className="btn btn-danger"
+          onClick={handleDelete}>
+            Delete
           </button>
         </div>
       </div>
