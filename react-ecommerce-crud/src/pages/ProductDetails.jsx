@@ -1,32 +1,21 @@
-import {useEffect,useState} from "react";
-import { useParams,Link } from "react-router-dom";
-import { getProductById } from "../services/api";
+import { Link,useNavigate,useParams} from "react-router-dom";
 
 
-function ProductDetails(){
+function ProductDetails({products}){
     const {id} = useParams();
-    const[product,setProduct]=useState(null);
-    const[loading,setLoading]=useState(true);
-    const[error,setError]=useState("");
+    const navigate=useNavigate();
 
-    useEffect(()=>{
-        async function fetchProduct(){
-            try{
-                const data=await getProductById(id);
-                setProduct(data);
-            } catch(err){
-                setError(err.message);
-            } finally{
-                setLoading(false);
-            }
-        }
-        fetchProduct();
-    },[id]);
-    if(loading){
-        return <h2 className="text-center mt-5">Loading...</h2>;
-    }
-    if (error){
-        return <h2 className="text-center text-danger mt-5">{error}</h2>;
+    const product=products.find(
+        (product)=>product.id === Number(id)
+        );
+    
+    if(!product){
+        return(
+
+         <h2 className="text-center mt-5">
+            Product not found
+        </h2>
+        );
     }
     return (
     <div className="container mt-5">
